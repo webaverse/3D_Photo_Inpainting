@@ -214,7 +214,7 @@ gradio_inputs = [gr.inputs.Image(type='pil', label='Input Image'),
 gradio_outputs = [gr.outputs.Video(label='Output Video')]
 examples = [ ['moon.jpg'], ['dog.jpg'] ]
 
-description="Convert an image into a trajectory-following video. Images are automatically resized down to a max edge of 512. | NOTE: The current runtime for a sample is around 400-700 seconds. Running on a lower number of frames could help! Do be patient as this is on CPU-only, BUT if this space maybe gets a GPU one day, it's already configured to run with GPU-support :) If you have a GPU, feel free to use the author's original repo, or just `git clone https://huggingface.co/spaces/Epoching/3D_Photo_Inpainting`, install packages and requirements, then `python app.py` to run the gradio GUI locally!"
+description="Convert an image into a trajectory-following video. Images are automatically resized down to a max edge of 512. | NOTE: The current runtime for a sample is around 400-700 seconds. Running on a lower number of frames could help! Do be patient as this is on CPU-only, BUT if this space maybe gets a GPU one day, it's already configured to run with GPU-support :) If you have a GPU, feel free to use the author's original repo (linked at the bottom of this path). You can also run this space/gradio app locally!"
 
 article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2004.04727' target='_blank'>3D Photography using Context-aware Layered Depth Inpainting</a> | <a href='https://shihmengli.github.io/3D-Photo-Inpainting/' target='_blank'>Github Project Page</a> | <a href='https://github.com/vt-vl-lab/3d-photo-inpainting' target='_blank'>Github Repo</a></p>"
 
