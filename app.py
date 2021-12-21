@@ -50,8 +50,6 @@ from time import sleep
 
 def inpaint(img_name, num_frames, fps):
     
-    print(traj_type)
-    
     config = yaml.load(open('argument.yml', 'r'))
     
     config['num_frames'] = num_frames
