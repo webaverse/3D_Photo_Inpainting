@@ -1,7 +1,7 @@
 ---
 title: 3D_Photo_Inpainting
-emoji: 🚀
-colorFrom: pink
+emoji: 👁
+colorFrom: purple
 colorTo: red
 sdk: gradio
 app_file: app.py
