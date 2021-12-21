@@ -48,7 +48,7 @@ from pathlib import Path
 import shutil
 from time import sleep
 
-def inpaint(img_name, num_frames, fps, traj_type):
+def inpaint(img_name, num_frames, fps):
     
     print(traj_type)
     
@@ -187,7 +187,7 @@ def resizer(input_img, max_img_size=512):
     else:
         return input_img
 
-def main_app(input_img, num_frames, fps, traj_type):
+def main_app(input_img, num_frames, fps):
     
     # Save image in necessary folder for inpainting
     img_name = Path(str(uuid.uuid4()) + '.jpg')
@@ -196,7 +196,7 @@ def main_app(input_img, num_frames, fps, traj_type):
     input_img = resizer(input_img)
     input_img.save(save_folder/img_name)
     
-    inpaint(img_name, num_frames, fps, traj_type)
+    inpaint(img_name, num_frames, fps)
     
     #subprocess.run('ls -l', shell=True)
     #subprocess.run('ls image -l', shell=True)
@@ -211,13 +211,12 @@ def main_app(input_img, num_frames, fps, traj_type):
 video_choices = ['dolly-zoom-in', 'zoom-in', 'circle', 'swing']
 gradio_inputs = [gr.inputs.Image(type='pil', label='Input Image'),
                  gr.inputs.Slider(minimum=60, maximum=240, step=1, default=120, label="Number of Frames"),
-                 gr.inputs.Slider(minimum=10, maximum=40, step=1, default=20, label="Frames per Second (FPS)"),
-                 gr.inputs.Radio(choices=video_choices, default='circle', label='(Work-in-progress) What type of 3D video do you want?')]
+                 gr.inputs.Slider(minimum=10, maximum=40, step=1, default=20, label="Frames per Second (FPS)")]
                  
 gradio_outputs = [gr.outputs.Video(label='Output Video')]
 examples = [ ['moon.jpg'], ['dog.jpg'] ]
 
-description="Convert an image into a trajectory-following video. Images are automatically resized down to a max edge of 512. | NOTE: The current runtime for a sample is around 400-700 seconds. Running on a lower number of frames could help! Do be patient as this is on CPU-only, BUT if this space maybe gets a GPU one day, it's already configured to run with GPU-support :) If you have a GPU, feel free to use the author's original repo, or just `git clone https://huggingface.co/spaces/Classified/3D_Photo_Inpainting`, install packages and requirements, then `python app.py` to run the gradio GUI locally!"
+description="Convert an image into a trajectory-following video. Images are automatically resized down to a max edge of 512. | NOTE: The current runtime for a sample is around 400-700 seconds. Running on a lower number of frames could help! Do be patient as this is on CPU-only, BUT if this space maybe gets a GPU one day, it's already configured to run with GPU-support :) If you have a GPU, feel free to use the author's original repo, or just `git clone https://huggingface.co/spaces/Epoching/3D_Photo_Inpainting`, install packages and requirements, then `python app.py` to run the gradio GUI locally!"
 
 article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2004.04727' target='_blank'>3D Photography using Context-aware Layered Depth Inpainting</a> | <a href='https://shihmengli.github.io/3D-Photo-Inpainting/' target='_blank'>Github Project Page</a> | <a href='https://github.com/vt-vl-lab/3d-photo-inpainting' target='_blank'>Github Repo</a></p>"
 
