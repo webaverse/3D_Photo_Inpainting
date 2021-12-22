@@ -187,12 +187,13 @@ def resizer(input_img, max_img_size=512):
 
 def main_app(input_img, num_frames, fps):
     
+    # resize down
+    input_img = resizer(input_img)
+    
     # Save image in necessary folder for inpainting
     #img_name = Path(str(uuid.uuid4()) + '.jpg')
     img_name = Path('sample.jpg')
     save_folder = Path('image')
-    
-    input_img = resizer(input_img)
     input_img.save(save_folder/img_name)
     
     inpaint(img_name, num_frames, fps)
