@@ -10,6 +10,7 @@ import subprocess
 subprocess.run('nvidia-smi', shell=True)
 
 from pyvirtualdisplay import Display
+display = Display(visible=0, size=(1920, 1080)).start()
 #subprocess.run('echo $DISPLAY', shell=True)
 
 # 3d inpainting imports
@@ -196,11 +197,7 @@ def main_app(input_img, num_frames, fps):
     save_folder = Path('image')
     input_img.save(save_folder/img_name)
     
-    display = Display(visible=0, size=(1920, 1080)).start()
-    
     inpaint(img_name, num_frames, fps)
-    
-    display.stop()
     
     #subprocess.run('ls -l', shell=True)
     #subprocess.run('ls image -l', shell=True)
