@@ -3,7 +3,6 @@
 #import os
 #os.environ['QT_DEBUG_PLUGINS'] = '1'
 
-
 import subprocess
 #subprocess.run('ldd /home/user/.local/lib/python3.8/site-packages/PyQt5/Qt/plugins/platforms/libqxcb.so', shell=True)
 #subprocess.run('pip list', shell=True)
