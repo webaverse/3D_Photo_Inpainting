@@ -226,4 +226,5 @@ iface = gr.Interface(fn=main_app, inputs=gradio_inputs , outputs=gradio_outputs,
                      article=article,
                      enable_queue=True)
 
+
 iface.launch(debug=True)
